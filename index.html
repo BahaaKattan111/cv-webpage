@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bahaa Kattan | CV</title>
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    /* ألوان خلفية ونص */
+    :root {
+      --color-bg-start: #000000;
+      --color-bg-end: #004039;
+      --color-text-main: #ffffff;
+      --color-gradient-h1-start: #ff7043;
+      --color-gradient-h1-mid: #ff5722;
+      --color-gradient-h1-end: #d84315;
+      --color-gradient-h2-start: #26c6da;
+      --color-gradient-h2-end: #66bb6a;
+      --color-gradient-h3-start: #9b9b9b;
+      --color-gradient-h3-end: #000000;
+      --color-link: #ff7043;
+      --color-link-hover: #d84315;
+      --color-list-bullet: #ff7043;
+    }
+
+    /* الخط العام */
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Cairo', sans-serif;
+      background: radial-gradient(
+        ellipse at 20% 30%,
+        var(--color-bg-start) 0%,
+        var(--color-bg-end) 60%
+      );
+      color: var(--color-text-main);
+      font-size: 20px;
+      letter-spacing: 2px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 1rem;
+    }
+    body{
+        width: 90vw;
+        margin: 0 auto;
+      }
+    /* الحاوية العامة */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    header,main {
+      background: rgba(255 255 255 / 0.07);
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0 0 0 / 0.3);
+    }
+
+    /* العنوان الرئيسي */
+    h1 {
+      font-size: clamp(3rem, 6vw, 4rem);
+      margin: 0 0 1rem 0;
+      font-weight: 700;
+      letter-spacing: 2px;
+      background: linear-gradient(
+        90deg,
+        var(--color-gradient-h1-start),
+        var(--color-gradient-h1-mid),
+        var(--color-gradient-h1-end)
+      );
+      -webkit-background-clip: text;
+      
+      background-clip: text;
+      text-fill-color: transparent;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* نص الترحيب */
+    .welcome-text {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: var(--color-list-bullet);
+
+    }
+
+    /* القوائم */
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    ul li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.6rem;
+      font-size: 1.1rem;
+    }
+
+    ul li::before {
+      content: '■';
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--color-list-bullet);
+      font-size: 1.2rem;
+      line-height: 1;
+    }
+
+    /* عناوين القسم */
+    h2 {
+      font-size: clamp(2rem, 4vw, 2.5rem);
+      margin-top: 0;
+      font-weight: 600;
+      background: linear-gradient(
+        90deg,
+        var(--color-gradient-h2-start),
+        var(--color-gradient-h2-end)
+      );
+      -webkit-background-clip: text;
+      
+      text-shadow: 0 0 6px rgba(38, 198, 218, 0.3);
+    }
+
+    h3,
+    h4 {
+      font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+      margin: 1rem 0 0.5rem 0;
+      font-weight: 600;
+      background: linear-gradient(
+        90deg,
+        var(--color-gradient-h3-start),
+        var(--color-gradient-h3-end)
+      );
+      -webkit-background-clip: text;
+      
+      text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
+    }
+
+    h4 {
+      font-weight: 500;
+      margin: 0.4rem 0 0.6rem 0;
+      font-size: 1rem;
+      color: #cfd8dc;
+    }
+
+    /* نص الفقرة والعناوين الصغيرة */
+    p,
+    address {
+      font-size: 1.1rem;
+      margin: 0.4rem 0 0.8rem 0;
+      color: var(--color-text-main);
+    }
+
+    address p {
+      margin: 0.2rem 0;
+    }
+
+    /* الروابط */
+    a {
+      color: var(--color-link);
+      text-decoration: none;
+      position: relative;
+      transition: color 0.3s ease;
+      font-weight: 600;
+    }
+
+    a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      height: 2px;
+      width: 0;
+      background: var(--color-link-hover);
+      transition: width 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--color-link-hover);
+    }
+
+    a:hover::after {
+      width: 100%;
+    }
+
+    /* روابط داخل قسم المشاريع */
+    .links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+
+    /* تنسيق الأقسام داخل Main */
+    main > section {
+      background: rgba(255 255 255 / 0.05);
+      padding: 1rem 1.5rem;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0 0 0 / 0.2);
+    }
+
+    /* عرض المرونة للأقسام في Main */
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    /* تخطيط المهارات بتقسيم مرن (flex) */
+    section ul > li {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid rgba(255 255 255 / 0.15);
+      padding-bottom: 1rem;
+    }
+    .key-word{
+        background-color: rgba(255, 255, 255, 0.15);
+        margin: .5em;
+        border-radius: 10px;
+
+    }
+    /* تنسيق عناوين فرعية خاصة داخل مهارات ML */
+    section ul > li ul {
+      margin-left: 1.5rem;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    /* تصميم متجاوب للجوال */
+    @media (max-width: 600px) {
+      html,
+      body {
+        font-size: 16px;
+        padding: 0.5rem;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      h3,
+      h4 {
+        font-size: 1.3rem;
+      }
+
+      .container {
+        padding: 0 0.5rem;
+      }
+
+      /* تحجيم الروابط قليلاً */
+      .links a {
+        font-size: 0.9rem;
+        word-break: break-word;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Bahaa Kattan | CV</h1>
+      <p class="welcome-text">
+        Welecome to my World I hope you don't Waste your Time:
+      </p>
+      <ul>
+        <li>I'm <span class="key-word">Lebanese</span>, From tripoli city.</li>
+        <li>I was born in 2004/01/24 (<span class="key-word">21</span> years old).</li>
+        <li>I know English and Arabic.</li>
+        <li>I finished <span class="key-word">12 Grade | SE</span> (Sociology and Economy) in 2024.</li>
+        <li>
+          I <span class="key-word">Love Reading</span> (psychology - relgion - palestine/zionism Issue -
+          technology ... every thing).
+        </li>
+        <li>I'm Preparing for collage | info-managment</li>
+        <li>
+          The best thing I did in my life is : <span class="key-word">X PRO Podcast</span> | Dark Side of Truth ;
+            black comedy talks about policy.
+        </li>
+      </ul>
+      <address>
+        <p>Phone: <span class="key-word">+961 81 480 979</span></p>
+        <p>Email: bahaa.kattan@proton.me</p>
+        <p>Address: Tripoli Mejdlaya - asatel street</p>
+      </address>
+    </header>
+
+
+            <main>
+                <section>
+                    <h2>My Experiences | jobs</h2>
+                    <ul>
+                        <li>
+                            <h4><span class="key-word">Ishtari Stock</span>| Filling - Preparing Orders (the last job I worked . 2025) </h4>
+                            <p>It's Large Electronic shop</p>
+                            <p>
+                                I worked there for around <span class="key-word">6 months</span>
+                            </p>
+                            <p>
+                                I Stopped Because I want to continue my study, I asked them if they can give half day work instead of full day. but they refused.
+                            </p>
+                        </li>
+
+                        <li>
+                            <h4><span class="key-word">AT&C Stock</span> | Filling - Preparing - Deleivering Orders (2024) </h4>
+                            <p>
+                                It's company that create deals with NGOs, they fill boxes with certain items (according to the deal. e.g. health care, food, clothes ...) and send it to NGOs.
+                            </p>
+                            <p>
+                                I worked there for around <span class="key-word">5 months</span>
+                            </p>
+                            <p>
+                                I Stopped Because I found better job in Ishtari stock <span class="key-word">(I got good experience in stocks )</span>
+                            </p>
+                        </li>
+
+                        <li>
+                            <h4><span class="key-word">I Usually Work as Plumber</span> With my father (not always) </h4>
+                            <p>    
+                                I'm Begginer, but I help him in case he need  workers.
+                            </p>
+                        </li>
+                        <li>
+                            <h4>I worked in<span class="key-word">sweet store</span> with my relatives. </h4>
+                            <p>    
+                                I worked for 1.5 months.
+                            </p>
+                        </li>
+                        <li>
+                            <h4>I do <span class="key-word">Podcast </span> using A.I.</h4>
+                            <p>
+                                 <span class="key-word">X PRO Podcast | Dark Side of Truth</span>. follow us  on social media:.
+                            </p>
+                            <p>    
+                                I use ElevenLabs to create two people talking to each others.
+                            </p>
+                            <p>
+                                But I write the thoughts and scripts. most episodes are political talks against zionism.
+                            </p>
+                            <a href="https://www.youtube.com/channel/UC5t1bAYNrOmNXAWJbsSoOYA">Youtube Link</a>
+                        </li>
+
+                    </ul>
+
+                </section>
+                <section>
+                    <h2>Technological SKILLS</h2>
+                    <ul>
+                        <li>
+                            <h4>Web Design | Begginer Fullstack </h4>
+                            <h4>
+                                <span class="key-word">I started  to learn 5 months ago</span><br>
+                                Teaching Sources: <span class="key-word">pdf books - youtube projects</span>.I'm learning till now modern methods :
+                            </h4>
+                            <h4>FRONT END</h4>
+                            <ul>
+                                <li><span class="key-word">HTML</span> | Create: page Structure like header - body - Searchbar ... (Intermediate)</li>
+                                <li><span class="key-word">CSS</span> | Style: Fonts - Borders - Page Structure (Intermediate)</li>
+                                <li><span class="key-word">JAVASCRIPT</span> | Add: Interactive User Experience - Make WebPage more Creative (Begginer)</li>
+                            </ul>
+                            <h4>BACK END</h4>
+                            <ul>
+                                <li><span class="key-word">PHP</span> | Server Side Opertaions: Collect Data From User ... (Begginer)</li>
+                                <li><span class="key-word">MYSQLI</span> | Database Opertaion: Insert User Values into DataBase ... (Begginer) </li>
+                            </ul>
+                            <h4>Projects:</h4>
+                            <p> No Info (still working on my CV)</p>
+                            
+                        </li>
+
+                        <li>
+                            <h4>Machine Learning (AI) | Intermediate </h4>
+                            <h4>
+                                <span class="key-word">Since I was 16 years old (2019)</span>, I started to learn  for <span class="key-word"></span>5 years (self-learning)</span>:Machine Learning using <span class="key-word">Python</span><br>
+                                Teaching Sources: <span class="key-word">PDF Books - Udemy Course - Youtube projects</span>. I stopped developping these skills in 2023,so I don't use modern methods (transformers...), but I'm ready to learn :
+                            </h4>
+
+                            <h4>Most used Tools/Libraries/Platforms:</h4>
+                            
+                            <h4> <span class="key-word">Artificial Inteligence</span> | Python</h4>
+                            <ul>
+                                <li>XGBoost - LightGBM - CatBoost | Mahine Learning : small but strong libraries</li>
+                                <li>sklearn | Mahine Learning : large multi-tools library</li>
+                                <li>Pytorch | Deep Learning : advanced platform (usually for large and complex data)</li>
+                                <li>Pandas - Numpy | Data Processing - Feature Engineering</li>
+                            </ul>
+                            
+                            <h4> <span class="key-word">Data Analysis</span> | Python</h4>
+                            <ul>
+                                <li>Matplotlib - Seaborn | View Data: scatter plot- bar plot - Relations ...</li>
+                                <li>Pandas | For Tabular Dataset: Creating Patterns Detected, so we can Understand Relations ...</li>
+                            </ul>
+                            
+                            <h4> <span class="key-word">Data Processing</span> | Python</h4>
+                            <ul>
+                                <li>torchaudio - librosa | For Sounds : Process-Clean Noise ...</li>
+                                <li>CV2 - PIL | For Images : Process-Clean-Resize ...</li>
+                                <li>Pandas | For Tabular Dataset: Process-Clean Outliers/NAN Values/Noise ...</li>
+                            </ul>
+
+                            <h4>Projects:</h4>
+                            <p>I have created/read/learnt lots of projects on Kaggle platform, but unfortunately I deleted the email (bhaa.kattan111@gmail.com) I used  to Sign-In into my old kaggle and LinkedIn accounts. <br>
+                               Still have Github Repisoteries that contain some of my projects' files and folders.
+                            </p>
+                            <ul>
+                                <li>
+                                    <h4>BirdCLEF 2022 Competition: Identify bird calls in soundscapes</h4>
+                                    <p>
+                                        In this Competition the main goal is to predict 21 type of birds.
+                                        my model reached 96% f1-score. but I had problem while submitting in the Competition, so I didn't continue and kept learning/discovering new audio tools and methods 
+                                    </p>
+                                    <div class="links">
+                                        <a href="https://github.com/BahaaKattan111/My-Projects-/tree/master/Bird%20Sound%20(BirdCLEF%202022)">
+                                            my Github code 
+                                        </a>
+                                        <a href="https://www.kaggle.com/c/birdclef-2022">
+                                            Competition Page
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>Churn Modelling: Predict whether the client will delete his bank account or continue as a client in the Bank</h4>
+                                    <p>
+                                    In this Project I will detect wether a costumer will stay in the bank or exit depending 
+                                    on certain feaetures like : Salary ,Gender,Age ...
+                                    the score is 0.86
+                                    Check the project file to see the techniques that I've used to make the project.
+                                    </p>
+                                    <div class="links">
+                                        <a href="https://github.com/BahaaKattan111/My-Projects-/tree/master/Churn_Modelling">
+                                            my Github code 
+                                        </a>
+                                        <a href="https://www.kaggle.com/datasets/hj5992/bank-churn-modelling">
+                                            Dataset Page
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h4>Predict House Price: using Advanced Regression Techniques</h4>
+                                    <p>
+                                        the score is around MAE (56981.12447) on Kaggle.        
+                                        Check the project file to see the techniques that i've used for this project.
+                                    </p>
+                                    <div class="links">
+                                        <a href="https://github.com/BahaaKattan111/My-Projects-/tree/master/House%20Prices%20Advanced%20Regression%20Techniques">
+                                            my Github code 
+                                        </a>
+                                        <a href="https://www.kaggle.com/datasets/zeeshanmulla/advance-house-price-predicitons?select=train.csv">
+                                            Dataset Page
+                                        </a>
+                                    </div>
+                                </li>
+                                <li>
+                                    <h4>Predict Trip Duration : New York City Taxi</h4>
+                                    <p>
+                                        No Info 
+                                    </p>
+                                    <div class="links">
+                                        <a href="https://github.com/BahaaKattan111/My-Projects-/blob/master/New%20York%20City%20Taxi%20Trip%20Duration">
+                                            my Github code 
+                                        </a>
+                                        <a href="https://www.kaggle.com/competitions/nyc-taxi-trip-duration/overview">
+                                            Competition Page
+                                        </a>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <h4>Classify Comments | Toxic Comment Classification Challenge</h4>
+                                    <p>
+                                        In this competition, I must detect different types of
+                                         toxicity like : threats, obscenity, insults, and identity-based hate.</p>
+                                    <div class="links">
+                                        <a href="https://github.com/BahaaKattan111/My-Projects-/tree/master/toxic_comment%20project%20code%20tamplate">
+                                            my Github code 
+                                        </a>
+                                        <a href="https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge">
+                                            Competition Page
+                                        </a>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                            <h4>some projects are academic problems, some are real-world problems. lots of projects are not mentioned here </h4>
+                        </li>
+
+                        <li>
+                            <h4>Experimental SKILLS for personal use: (I didn't continue developping these skills) </h4>
+                            <ul>
+                                <li>webpage Scraping - Automation - Bots | tried to create Automated instagram bots for personal reasons using python (Begginer)</li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </section>
+                <section>
+                    <h2>Good Traits</h2>
+                    <h5>! for some people these traits are good, others may see them as bad</h5>
+
+                    <ul>
+                        <li>Deep Thinker | studying pros, cons and consequences before taking important steps</li>
+                        <li>I'm good in planning and organizing steps</li>
+                        <li>good in explaining, conveincing and understanding people point of view </li>
+                    </ul>
+
+                    <h2>Bad traits</h2>
+                    <h5>! for some people these traits are good, others may see them as bad</h5>
+                    <ul>
+                        <li>disagree/argue if not convienced regardless with who i'm talking to</li>
+                        <li>transparent/honest, too much</li>
+                    </ul>
+                </section>
+            </main>
+
+        </body>
+</html>
